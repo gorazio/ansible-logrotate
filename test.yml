@@ -1,0 +1,7 @@
+---
+- hosts: "{{hosts_group|default('all')}}"
+  become: yes
+  vars_files:
+    - 'testvar.yml'
+  roles:
+    - logrotate

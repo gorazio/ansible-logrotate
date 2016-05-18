@@ -2,17 +2,20 @@
 - hosts: all
   sudo: True
   roles:
-    - ansible-logrotate
-    - role: ansible-logrotate
+    - logrotate
+    - role: logrotate
       logrotate_scripts:
         - name: nginx-options
-          path: /var/log/nginx/options.log
+          path:
+            - /var/log/nginx/options.log
+            - /var/log/nginx/options2.log
           options:
             - daily
 
-    - role: ansible-logrotate
+    - role: logrotate
       logrotate_scripts:
         - name: nginx-scripts
-          path: /var/log/nginx/scripts.log
+          path:
+            - /var/log/nginx/scripts.log
           scripts:
             postrotate: "echo test"

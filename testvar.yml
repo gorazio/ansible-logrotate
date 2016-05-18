@@ -1,0 +1,12 @@
+logrotate_scripts:
+  - name: nginx-options
+    path:
+      - /var/log/nginx/options.log
+      - /var/log/nginx/options2.log
+    options:
+      - daily
+  - name: nginx-scripts
+    path:
+      - /var/log/nginx/scripts.log
+    scripts:
+      postrotate: "echo test"
